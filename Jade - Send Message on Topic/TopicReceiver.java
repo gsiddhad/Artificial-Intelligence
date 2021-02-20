@@ -23,7 +23,7 @@ public class TopicReceiver extends Agent {
 					ACLMessage msg = myAgent.receive(MessageTemplate.MatchTopic(topic));
 					if (msg != null)
 						System.out.println(" Agent " + myAgent.getLocalName() + ": Message about topic - "
-							+ topic.getLocalName() + " received. Content is " + msg.getContent());
+								+ topic.getLocalName() + " received. Content is " + msg.getContent());
 					else
 						block();
 				}

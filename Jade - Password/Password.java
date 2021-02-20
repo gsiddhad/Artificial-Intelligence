@@ -9,7 +9,7 @@ import jade.core.Agent;
 import jade.core.behaviours.SimpleBehaviour;
 
 @SuppressWarnings("serial")
-public class Password extends Agent{
+public class Password extends Agent {
 	@Override
 	protected void setup() {
 		addBehaviour(new mybehaviour(this));
@@ -34,7 +34,7 @@ public class Password extends Agent{
 			password = scanner.next();
 			try {
 				checkstrength(password.toString());
-			} catch(Exception e) {
+			} catch (Exception e) {
 				System.out.println("Exception");
 			}
 			finished = true;
@@ -50,18 +50,18 @@ public class Password extends Agent{
 		int length = password.length();
 		int digit = 0, lowercase = 0, uppercase = 0, count = 0;
 
-		if(length >= 8) {
-			for(count=0; count<length; count++) {
+		if (length >= 8) {
+			for (count = 0; count < length; count++) {
 				ch = password.charAt(count);
-				if(Character.isDigit(ch))
+				if (Character.isDigit(ch))
 					digit++;
-				else if(Character.isLowerCase(ch))
+				else if (Character.isLowerCase(ch))
 					lowercase++;
-				else if(Character.isUpperCase(ch))
+				else if (Character.isUpperCase(ch))
 					uppercase++;
 			}
 		}
-		if(digit>=1 && lowercase>=1 && uppercase>=1)
+		if (digit >= 1 && lowercase >= 1 && uppercase >= 1)
 			System.out.println("Password Strength : Strong");
 		else
 			System.out.println("Password Strength : Weak");

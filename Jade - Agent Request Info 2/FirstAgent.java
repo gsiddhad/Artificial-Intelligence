@@ -10,10 +10,10 @@ import jade.core.behaviours.OneShotBehaviour;
 import jade.lang.acl.ACLMessage;
 
 @SuppressWarnings("serial")
-public class FirstAgent extends Agent{
+public class FirstAgent extends Agent {
 	@Override
 	protected void setup() {
-		
+
 		addBehaviour(new OneShotBehaviour() {
 			@Override
 			public void action() {

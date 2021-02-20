@@ -10,13 +10,13 @@ import jade.domain.FIPAAgentManagement.*;
 
 public class CountAgents extends Agent {
     protected void setup() {
-		AMSAgentDescription [] agents = null;
+        AMSAgentDescription[] agents = null;
         try {
             SearchConstraints c = new SearchConstraints();
-            c.setMaxResults (new Long(-1));
-            agents = AMSService.search( this, new AMSAgentDescription (), c);
+            c.setMaxResults(new Long(-1));
+            agents = AMSService.search(this, new AMSAgentDescription(), c);
         } catch (Exception e) {
-            System.out.println( "Problem searching AMS: " + e );
+            System.out.println("Problem searching AMS: " + e);
             e.printStackTrace();
         }
 

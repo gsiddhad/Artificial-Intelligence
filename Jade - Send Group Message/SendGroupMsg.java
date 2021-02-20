@@ -11,15 +11,15 @@ import jade.domain.FIPAAgentManagement.*;
 import jade.lang.acl.ACLMessage;
 
 public class SendGroupMsg extends Agent {
-    protected void setup() {
-        AMSAgentDescription [] agents = null;
-        try {
-            SearchConstraints sc = new SearchConstraints();
-            sc.setMaxResults (new Long(-1));
-            agents = AMSService.search(this, new AMSAgentDescription(), sc);
+	protected void setup() {
+		AMSAgentDescription[] agents = null;
+		try {
+			SearchConstraints sc = new SearchConstraints();
+			sc.setMaxResults(new Long(-1));
+			agents = AMSService.search(this, new AMSAgentDescription(), sc);
 		} catch (Exception e) {
-            System.out.println(" Problem searching AMS: " + e );
-            e.printStackTrace();
+			System.out.println(" Problem searching AMS: " + e);
+			e.printStackTrace();
 		}
 
 		ACLMessage msg = new ACLMessage(ACLMessage.INFORM);
@@ -31,12 +31,12 @@ public class SendGroupMsg extends Agent {
 		send(msg);
 
 		addBehaviour(new CyclicBehaviour(this) {
-			 public void action() {
+			public void action() {
 				ACLMessage msg = receive();
 				if (msg != null)
 					System.out.println(" -> Answer : " + msg.getContent() + " from : " + msg.getSender().getName());
 				block();
-			 }
+			}
 		});
 	}
 }

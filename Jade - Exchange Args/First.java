@@ -19,7 +19,7 @@ public class First extends Agent {
 		final int narg = args.length;
 		String sarg[] = new String[narg];
 
-		for(int i=0; i<narg; i++)
+		for (int i = 0; i < narg; i++)
 			sarg[i] = args[i].toString();
 
 		addBehaviour(new OneShotBehaviour() {
@@ -27,7 +27,7 @@ public class First extends Agent {
 			public void action() {
 				// Send args to other agent
 				System.out.println("Sending Arguments to Second Agent");
-				for(int i=0; i<narg; i++) {
+				for (int i = 0; i < narg; i++) {
 					ACLMessage msg = new ACLMessage(ACLMessage.INFORM);
 					msg.setContent(sarg[i]);
 					msg.addReceiver(new AID("Second", AID.ISLOCALNAME));
@@ -39,9 +39,9 @@ public class First extends Agent {
 		addBehaviour(new CyclicBehaviour() {
 			@Override
 			public void action() {
-				//Receive message
+				// Receive message
 				ACLMessage msg = receive();
-				if(msg != null)
+				if (msg != null)
 					System.out.println("Message Received in First Agent : " + msg.getContent().toString());
 				else
 					block();

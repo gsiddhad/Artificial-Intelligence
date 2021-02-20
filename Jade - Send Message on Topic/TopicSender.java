@@ -19,7 +19,7 @@ public class TopicSender extends Agent {
 			addBehaviour(new TickerBehaviour(this, 10000) {
 				public void onTick() {
 					System.out.println(" Agent " + myAgent.getLocalName() + " : Sending message about topic - "
-						+ topic.getLocalName());
+							+ topic.getLocalName());
 					ACLMessage msg = new ACLMessage(ACLMessage.INFORM);
 					msg.addReceiver(topic);
 					msg.setContent(String.valueOf(getTickCount()));

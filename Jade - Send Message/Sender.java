@@ -11,7 +11,7 @@ import jade.lang.acl.ACLMessage;
 public class Sender extends Agent {
 	protected void setup() {
 		addBehaviour(new OneShotBehaviour() {
-			public void action () {
+			public void action() {
 				System.out.println(" Sending Message ");
 				ACLMessage msg = new ACLMessage(ACLMessage.INFORM);
 				msg.setContent("Send");
